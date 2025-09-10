@@ -1,0 +1,5 @@
+<h1><%= @note.name %></h1>
+
+<%= link_to "Back", notes_path %>
+<%= link_to "Edit Note", edit_note_path(@note)%>
+<%= button_to "Delte", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
