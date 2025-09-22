@@ -1,4 +1,5 @@
 <% cache @note do %>
+  <%= image_tag @note.image if @note.image.attached? %>
   <h1><%= @note.name %></h1>
   <%= @note.content %>
 <% end %>

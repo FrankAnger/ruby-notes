@@ -1,9 +1,17 @@
 <%= form_with model: note do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.rich_text_area :content %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :content, style: "display: block" %>
+      <%= form.rich_text_area :content %>
+    </div>
+    <div>
+      <%= form.label :image, style: "display: block" %>
+      <%= form.file_field :image, accept: "image/*" %>
+    </div>
   </div>
 
   <div>
