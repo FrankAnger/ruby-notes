@@ -1,5 +1,12 @@
-<h1><%= @note.name %></h1>
+<% cache @note do %>
+  <h1><%= @note.name %></h1>
+  <%= @note.content %>
+<% end %>
 
 <%= link_to "Back", notes_path %>
-<%= link_to "Edit Note", edit_note_path(@note)%>
-<%= button_to "Delte", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% if authenticated? %>
+  <%= link_to "Edit Note", edit_note_path(@note)%>
+  <%= button_to "Delete", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<% else %>
+  <%= link_to "Login", new_session_path unless authenticated? %>
+<% end %>

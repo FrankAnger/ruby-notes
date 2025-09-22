@@ -43,6 +43,6 @@ class NotesController < ApplicationController
     end
 
     def note_params
-      params.expect(note: [ :name ])
+      params.expect(note: [ :name, :content ])
     end
 end
