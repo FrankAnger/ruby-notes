@@ -4,6 +4,8 @@
   <%= @note.content %>
 <% end %>
 
+<%= render "update_count", note: @note %>
+
 <%= link_to "Back", notes_path %>
 <% if authenticated? %>
   <%= link_to "Edit Note", edit_note_path(@note)%>

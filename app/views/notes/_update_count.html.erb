@@ -1,0 +1,11 @@
+<% if note.update_count? %>
+  <p><%= note.update_count %> in stock</p>
+<% else %>
+  <p>Note hasn't been updated</p>
+  <p>Email me when available.</p>
+
+  <%= form_with model: [note, Subscriber.new] do |form| %>
+    <%= form.email_field :email, placeholder: "you@example.com", required: true %>
+    <%= form.submit "Submit" %>
+  <% end %>
+<% end %>
