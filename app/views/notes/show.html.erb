@@ -1,15 +1,17 @@
-<% cache @note do %>
-  <%= image_tag @note.image if @note.image.attached? %>
-  <h1><%= @note.name %></h1>
-  <%= @note.content %>
-<% end %>
+<section class="note">
+    <%= image_tag @note.image if @note.image.attached? %>
+      <section class="notes-info">
+        <% cache @note do %>
+          <h1><%= @note.name %></h1>
+          <%= @note.content %>
+        <% end %>
+      <%= render "update_count", note: @note %>
 
-<%= render "update_count", note: @note %>
-
-<%= link_to "Back", notes_path %>
-<% if authenticated? %>
-  <%= link_to "Edit Note", edit_note_path(@note)%>
-  <%= button_to "Delete", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
-<% else %>
-  <%= link_to "Login", new_session_path unless authenticated? %>
-<% end %>
+      <% if authenticated? %>
+        <%= link_to "Edit Note", edit_note_path(@note)%>
+        <%= button_to "Delete", @note, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      <% else %>
+        <%= link_to "Login", new_session_path unless authenticated? %>
+      <% end %>
+    </section>
+</section>
