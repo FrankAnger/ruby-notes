@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   allow_unauthenticated_access only: %i[index show]
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_note, only: %i[ show edit update destroy ]
   def index
     @notes = Note.all
   end
@@ -38,7 +38,7 @@ class NotesController < ApplicationController
   end
 
   private
-    def set_product
+    def set_note
       @note = Note.find(params[:id])
     end
 
